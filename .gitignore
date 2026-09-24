@@ -1,9 +1,6 @@
 # Local data and native build leftovers
 /data/
-/dist/*.h
-/dist/*.dll
-/dist/*.dylib
-/dist/*.so
+/dist/
 
 # Editor / operating-system files
 .DS_Store

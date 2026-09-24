@@ -14,23 +14,23 @@
 ## 安装
 
 1. 使用 Chrome 116 或更新版本。
-2. 解压发布包，或克隆本仓库。
-3. 打开 `chrome://extensions`，启用“开发者模式”，点击“加载已解压的扩展程序”，选择仓库中的 `extension` 目录。
+2. 从本仓库的 [Releases](https://github.com/wan19970127/CPAReAuth/releases) 下载最新扩展 ZIP 并解压。
+3. 打开 `chrome://extensions`，启用“开发者模式”，点击“加载已解压的扩展程序”，选择解压目录中的 `extension` 文件夹。
 4. 在扩展详情中开启“允许在无痕模式下运行”。
 5. 打开 CPA-Manager-Plus 的 `management.html` 账号页，在“运行状态”中选择“需要重新认证”。打开扩展侧边栏并扫描当前管理页。
 6. 在扩展设置中配置 Cloud Mail 地址和管理员账号，并按提示授权扩展访问对应站点。
 
 管理页需保持打开，以便逐账号刷新额度。批量任务开始前，请关闭其他无痕窗口；待认证账号需要有可读取的邮箱地址。
 
-## 构建与测试
+## 开发者说明（可选）
 
-在 Windows PowerShell 中执行：
+普通使用者无需运行构建脚本。开发者可在 Windows PowerShell 中运行构建和回归测试：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build_extension.ps1
 ```
 
-脚本会检查 JavaScript 语法、运行 DOM 扫描、验证码、OAuth 回调、多账号队列及额度刷新回归测试，并生成 `dist/cpa-reauth-helper-extension-v<版本>.zip` 和 `dist/SHA256SUMS`。
+脚本会检查 JavaScript 语法，并运行 DOM 扫描、验证码、OAuth 回调、多账号队列及额度刷新回归测试。构建 ZIP 输出到本地 `dist/` 目录；该目录不纳入 Git，发布 ZIP 通过 GitHub Releases 分发。
 
 ## 权限与数据
 
@@ -38,8 +38,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build_extension.ps1
 
 扩展不会把账号列表上传到本项目或第三方服务。管理页和 Cloud Mail 的网络请求仅用于用户配置的认证及额度刷新流程。
 
-## 目录
-
-- `extension/`：Chrome 扩展源码和扩展内使用说明。
-- `scripts/`：构建脚本和自动化回归测试。
-- `dist/`：最近一次构建的安装包和 SHA-256 校验文件。
+源码位于 `extension/`；开发构建及测试工具位于 `scripts/`。
