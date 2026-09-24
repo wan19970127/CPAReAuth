@@ -42,5 +42,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build_extension.ps1
 
 - `extension/`：Chrome 扩展源码和扩展内使用说明。
 - `scripts/`：构建脚本和自动化回归测试。
-- `docs/research/`：CPA / CPA-Manager-Plus 筛选与 Management API 的实现调研。
 - `dist/`：最近一次构建的安装包和 SHA-256 校验文件。
