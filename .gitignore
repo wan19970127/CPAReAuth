@@ -1,0 +1,12 @@
+# Local data and native build leftovers
+/data/
+/dist/*.h
+/dist/*.dll
+/dist/*.dylib
+/dist/*.so
+
+# Editor / operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

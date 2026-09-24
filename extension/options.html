@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>CPA ReAuth Helper</title><style>
+body{font:14px system-ui;max-width:700px;margin:40px auto;padding:0 20px;color:#17202a}
+label{display:block;margin:16px 0 5px;font-weight:600}
+input[type=url],input[type=email],input[type=password]{width:100%;box-sizing:border-box;padding:10px;border:1px solid #cad0da;border-radius:7px}
+.check{display:flex;align-items:center;gap:8px;font-weight:400}.check input{margin:0}
+button{margin-top:20px;padding:10px 16px;border:0;border-radius:7px;background:#155eef;color:#fff;cursor:pointer}
+p{color:#667085;line-height:1.5}#out{white-space:pre-wrap;margin-top:16px;color:#344054}
+</style></head><body>
+<h1>CPA ReAuth Helper 0.6.0</h1>
+<p>扩展侧边栏从管理页 DOM 读取当前“需要重新认证”筛选结果；认证成功后会逐账号调用管理页现有额度刷新操作。CPA API 地址由管理页自动提供，Cloud Mail 仍需单独配置。</p>
+<label for="key">CPA Management Key</label><input id="key" type="password" autocomplete="off">
+<label for="cloud">Cloud Mail 地址</label><input id="cloud" type="url" placeholder="https://mail.example.com">
+<label for="email">Cloud Mail 管理员邮箱</label><input id="email" type="email" autocomplete="username">
+<label for="password">Cloud Mail 管理员密码</label><input id="password" type="password" autocomplete="new-password" placeholder="留空保持原密码">
+<label class="check"><input id="strict" type="checkbox" checked>认证前要求关闭其他无痕窗口</label>
+<p id="incognito"></p><button id="save">授权 Cloud Mail 并保存</button><div id="out" role="status"></div>
+<script src="options.js"></script></body></html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPA ReAuth</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="brand-copy"><p class="eyebrow">CPA / AUTH OPERATIONS</p><h1>ReAuth Console</h1></div>
+      <a class="settings-link" href="#" id="settings" title="扩展设置" aria-label="扩展设置">⚙</a>
+    </header>
+
+    <section class="connection-card" aria-live="polite">
+      <div class="connection-line"><span class="status-light" id="connection-light"></span><strong id="connection-title">尚未连接管理页</strong></div>
+      <p id="connection-detail">请在 CPA-Manager-Plus 管理页点击扩展图标，然后扫描“需要重新认证”账号。</p>
+      <button class="button button-secondary button-wide" id="scan">扫描当前管理页</button>
+    </section>
+
+    <section class="work-section">
+      <div class="section-heading"><div><p class="eyebrow">QUEUE BUILDER</p><h2>认证名单 <span class="count" id="account-count">0</span></h2></div><button class="text-button" id="select-all">全选</button></div>
+      <div class="account-list" id="accounts"><div class="empty-state">扫描后，这里会显示管理页筛出的账号。</div></div>
+      <div class="run-mode">
+        <div class="run-mode-copy"><strong>后台最小化认证</strong><span id="mode-detail">认证窗口最小化；需要人工操作时自动弹出</span></div>
+        <button class="mode-switch" id="background-mode" type="button" role="switch" aria-checked="false" aria-label="后台最小化认证"><span></span></button>
+      </div>
+      <div class="queue-actions">
+        <button class="button button-primary" id="run-selected" disabled>认证所选</button>
+        <button class="button button-all" id="run-all" disabled>全部认证</button>
+      </div>
+      <button class="button button-stop hidden" id="stop">停止队列</button>
+    </section>
+
+    <section class="progress-section">
+      <div class="section-heading"><div><p class="eyebrow">LIVE RUN</p><h2>任务进度</h2></div><span class="run-state" id="run-state">空闲</span></div>
+      <div class="progress-track"><span id="progress-bar"></span></div>
+      <div class="progress-caption"><span id="progress-count">等待任务</span><span id="progress-success">成功 0</span></div>
+      <div class="current-task" id="current-task">准备就绪</div>
+    </section>
+
+    <section class="log-section">
+      <div class="section-heading"><div><p class="eyebrow">EVENT STREAM</p><h2>运行日志</h2></div><button class="text-button" id="clear-log">清除显示</button></div>
+      <ol class="log-list" id="logs"><li class="empty-state">尚无任务日志。</li></ol>
+    </section>
+    <footer><span>无痕窗口按所选模式运行</span><span class="footer-dot"></span><span>人工步骤自动提醒</span></footer>
+  </main>
+  <script src="panel.js"></script>
+</body>
+</html>

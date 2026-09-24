@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "minimum_chrome_version": "116",
+  "name": "CPA ReAuth Helper",
+  "version": "0.1.0",
+  "description": "CPA ReAuth Helper：从管理页 DOM 收集筛选结果，在扩展侧边栏编排无痕认证并刷新账号额度。",
+  "permissions": ["storage", "tabs", "webNavigation", "alarms", "scripting", "sidePanel"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "host_permissions": [
+    "https://auth.openai.com/*",
+    "https://*.openai.com/*",
+    "https://chatgpt.com/*",
+    "http://localhost:1455/*",
+    "http://127.0.0.1:1455/*"
+  ],
+  "background": {"service_worker": "background.js"},
+  "content_scripts": [{
+    "matches": ["https://auth.openai.com/*", "https://*.openai.com/*", "https://chatgpt.com/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "options_page": "options.html",
+  "side_panel": {"default_path": "panel.html"},
+  "action": {"default_title": "CPA ReAuth Helper"}
+}
